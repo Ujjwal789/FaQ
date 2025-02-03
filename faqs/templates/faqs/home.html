@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ System</title>
+    <!-- Load static files in Django -->
+    {% load static %}
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the FAQ System</h1>
+        <nav>
+            <ul>
+                <li><a href="/page/">View FAQs</a></li>
+                <li><a href="/faqs/submit/">Submit a Question</a></li>
+                <li><a href="/admin/">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 FAQ System</p>
+    </footer>
+</body>
+</html>

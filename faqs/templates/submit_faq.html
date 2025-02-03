@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit FAQ</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.0/classic/ckeditor.js"></script>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Submit a New FAQ</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Render the form fields -->
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    // Initialize CKEditor for the 'answer' field with CKEditor 5
+    ClassicEditor
+        .create(document.querySelector('#id_answer'))  // Ensure this matches the ID of your answer field
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+</body>
+</html>

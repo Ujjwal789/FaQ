@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+        .faq-container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .faq-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .faq-answer {
+            color: #555;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+
+        {% if faqs %}
+            {% for faq in faqs %}
+                <div class="faq-item">
+                    <p class="faq-question">{{ faq.question }}</p>
+                    <p class="faq-answer">{{ faq.answer }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No FAQs available.</p>
+        {% endif %}
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let form = document.querySelector("form");
+            form.addEventListener("submit", function (e) {
+                for (const instance in CKEDITOR.instances) {
+                    CKEDITOR.instances[instance].updateElement();  // Sync content with textarea
+                }
+            });
+        });
+        </script>
+        
+        
+
+</body>
+</html>
